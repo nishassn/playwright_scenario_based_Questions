@@ -9,11 +9,11 @@ test('Select Checkboxes in a Web Table',async({page})=>{
 
    await page.goto("https://qavbox.github.io/demo/webtable/");
 
-  await locateAndClick(page,'Functional');
+  await locateAndClick(page,'QTP');
 
- await locateAndClick(page,'GUI');
+ await locateAndClick(page,'Selenium');
 
- await locateAndClick(page,'Performance');
+ await locateAndClick(page,'Coded UI');
 
 });
 
@@ -21,7 +21,7 @@ test('Select Checkboxes in a Web Table',async({page})=>{
 async function  locateAndClick(page:Page,user:String)
 {
  //Locate the checkbox
-   const checkBox:Locator=page.locator(`//td[text()='${user}']/preceding-sibling::td//input[@type='checkbox']`);
+   const checkBox:Locator=page.locator(`//tr[.//td[text()='${user}'] or .//a[text()='${user}']]//td[1]//input[@type='checkbox']`);
 
      //Create a reusable function to perform this operation for different row values.
    await checkBox.click();
